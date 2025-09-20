@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YH EcoSystem — Yoga Hub Studio</title>
+<style>
+:root{--primary:#1e73be;--bg:#f7f9fb;--muted:#6b6f76;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;}
+body{margin:0;background:var(--bg);color:#111;}
+.header{background:white;padding:28px 20px;display:flex;align-items:center;gap:16px;box-shadow:0 1px 0 rgba(0,0,0,0.06);}
+.brand{display:flex;flex-direction:column;}
+.brand h1{margin:0;font-size:20px;letter-spacing:0.6px;}
+.brand p{margin:4px 0 0;color:var(--muted);font-size:13px;}
+.container{max-width:1100px;margin:28px auto;padding:0 20px;}
+.grid{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start;}
+.card{background:white;padding:20px;border-radius:10px;box-shadow:0 6px 24px rgba(16,24,40,0.06);}
+.hero{display:flex;gap:20px;align-items:center;}
+.hero .logo{width:120px;height:120px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(180deg,#fff,#eef4fb);box-shadow:0 4px 18px rgba(30,115,190,0.08);}
+h2{margin:0 0 12px 0;}
+.section-title{color:var(--primary);font-weight:600;margin-bottom:12px;}
+.features{list-style:none;padding:0;margin:0;}
+.features li{padding:8px 0;border-bottom:1px dashed #eee;color:var(--muted);font-size:14px;}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px;}
+.gallery img{width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer;box-shadow:0 8px 20px rgba(2,6,23,0.06);transition:transform .18s;}
+.gallery img:hover{transform:translateY(-6px);}
+.contact-list{list-style:none;padding:0;margin:0;font-size:14px;color:var(--muted);}
+.footer{padding:28px 20px;text-align:center;color:var(--muted);font-size:13px;}
+@media(max-width:900px){.grid{grid-template-columns:1fr;}.hero{flex-direction:column;align-items:flex-start;} .header{flex-direction:column;align-items:flex-start;}}
+/* Lightbox */
+#lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.7);z-index:9999;}
+#lightbox img{max-width:92%;max-height:86%;border-radius:8px;box-shadow:0 20px 60px rgba(2,6,23,0.6);}
+.close-btn{position:absolute;right:18px;top:18px;background:rgba(255,255,255,0.9);border-radius:999px;padding:8px 12px;font-weight:700;cursor:pointer;}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="logo-placeholder" style="width:56px;height:56px;border-radius:8px;background:linear-gradient(180deg,#fff,#eef4fb);display:flex;align-items:center;justify-content:center;">
+    <!-- inline logo -->
+    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      <circle cx="50" cy="50" r="48" stroke="#e6eef6" stroke-width="4"/>
+      <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="28" fill="#1e73be">YH</text>
+    </svg>
+  </div>
+  <div class="brand">
+    <h1>YH EcoSystem — Yoga Hub Studio</h1>
+    <p>Intelligent Automation &amp; AI Solutions for a Smarter World</p>
+  </div>
+  <div style="margin-left:auto;color:var(--muted);font-size:14px;">
+    Phone: +91-9920333085
+  </div>
+</header>
+
+<main class="container">
+  <div class="grid">
+    <div>
+      <div class="card hero">
+        <div class="logo" aria-hidden>
+          <img src="data:image/jpeg;base64,REALLY_LONG_BASE64_HERE" alt="hero" style="max-width:110px;max-height:110px;border-radius:8px;">
+        </div>
+        <div>
+          <h2>Your Partner in Intelligent Living</h2>
+          <p style="color:var(--muted);margin:6px 0 12px;">From smart homes to business automation and next-gen EV charging — unified, secure, and future-ready solutions.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="#services" style="text-decoration:none;padding:8px 12px;border-radius:8px;background:var(--primary);color:#fff;font-weight:600;">Explore Services</a>
+            <a href="#gallery" style="text-decoration:none;padding:8px 12px;border-radius:8px;border:1px solid #e6eef6;color:var(--primary);">View Gallery</a>
+          </div>
+        </div>
+      </div>
+      <!-- Services / Home Automation / EV Charging / Vibe Coding Studio -->
+      <div class="card" id="services" style="margin-top:18px;">
+        <div class="section-title">AI &amp; Software Services</div>
+        <ul class="features">
+          <li>Custom GPT Agents &amp; AI solutions for business processes.</li>
+          <li>Bespoke apps &amp; software (Vibe Coding Studio) — rapid prototyping to production.</li>
+          <li>AI-powered content creation &amp; AR/VR corporate experiences.</li>
+          <li>Systems integration: home, business, mobility.</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:18px;">
+        <div class="section-title">Home Automation</div>
+        <p style="color:var(--muted);margin:6px 0 12px;">Smart lighting, climate control, media, appliances, and water systems — personalized comfort and energy efficiency.</p>
+      </div>
+      <div class="card" style="margin-top:18px;">
+        <div class="section-title">EV Charging</div>
+        <p style="color:var(--muted);margin:6px 0 12px;">Fast, reliable EV charging for cars and bikes with intelligent load management and scheduling.</p>
+      </div>
+      <div class="card" style="margin-top:18px;">
+        <div class="section-title">Vibe Coding Studio</div>
+        <p style="color:var(--muted);margin:6px 0 12px;">Turn ideas into working apps, websites, and digital tools. Prototype quickly and scale when ready.</p>
+      </div>
+    </div>
+    <aside>
+      <div class="card">
+        <div class="section-title">Contact</div>
+        <ul class="contact-list">
+          <li>Phone: <a href="tel:+919920333085">+91-9920333085</a></li>
+          <li>Email: <a href="mailto:hello@yh-ecosystem.example">hello@yh-ecosystem.example</a></li>
+          <li>Visit: Yoga Hub Studio — request a live demo</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:18px;">
+        <div class="section-title">Why YH?</div>
+        <p style="color:var(--muted);margin:6px 0 12px;">Unified 360° tech ecosystem. Secure &amp; energy efficient. Fully customizable solutions—affordable and scalable.</p>
+      </div>
+    </aside>
+  </div>
+
+  <section class="container" id="gallery" style="margin-top:22px;">
+    <div class="card">
+      <h3 style="margin-top:0;">Gallery — All Slides</h3>
+      <div class="gallery">
+        <!-- All 9 images embedded below -->
+        <img src="data:image/jpeg;base64,BASE64_IMAGE1" alt="Slide 1" onclick="openLightbox(this.src)">
+        <img src="data:image/jpeg;base64,BASE64_IMAGE2" alt="Slide 2" onclick="openLightbox(this.src)">
+        <img src="data:image/jpeg;base64,BASE64_IMAGE3" alt="Slide 3" onclick="openLightbox(this.src)">
+        <img src="data:image/jpeg;base64,BASE64_IMAGE4" alt="Slide 4" onclick="openLightbox(this.src)">
+        <img src="data:image/jpeg;base64,BASE64_IMAGE5" alt="Slide 5" onclick="openLightbox(this.src)">
+        <img src="data:image/jpeg;base64,BASE64_IMAGE6" alt="Slide 6" onclick="openLightbox(this.src)">
+        <img src="data:image/jpeg;base64,BASE64_IMAGE7" alt="Slide 7" onclick="openLightbox(this.src)">
+        <img src="data:image/jpeg;base64,BASE64_IMAGE8" alt="Slide 8" onclick="openLightbox(this.src)">
+        <img src="data:image/png;base64,BASE64_IMAGE9" alt="Slide 9" onclick="openLightbox(this.src)">
+      </div>
+    </div>
+  </section>
+  <div style="height:28px;"></div>
+</main>
+
+<footer class="footer">
+  <div>YH EcoSystem — Yoga Hub Studio · +91-9920333085 · hello@yh-ecosystem.example</div>
+  <div style="margin-top:8px;color:var(--muted);font-size:12px;">© Yoga Hub Studio — Powered by Vibe Coding Studio</div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLB()">
+  <div class="close-btn" onclick="closeLB();event.stopPropagation();">✕</div>
+  <img id="lbimg" src="" alt="preview">
+</div>
+
+<script>
+function openLightbox(src){
+  var lb = document.getElementById('lightbox');
+  var im = document.getElementById('lbimg');
+  im.src = src;
+  lb.style.display = 'flex';
+}
+function closeLB(){
+  var lb = document.getElementById('lightbox');
+  lb.style.display = 'none';
+  document.getElementById('lbimg').src = '';
+}
+</script>
+</body>
+</html>
