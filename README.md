@@ -1,1 +1,1 @@
-YOGA HUB Instructor, Place
+  YOGA HUB Instructor, Place
