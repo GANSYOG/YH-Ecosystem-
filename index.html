@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YogaHub India - Complete Yoga Learning & Marketplace Platform</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Subtle Pattern Overlay for aesthetics -->
+  <div class="pattern-overlay"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__content">
+      <div class="header__logo">
+        <h1>🧘‍♀️ YogaHub</h1>
+      </div>
+
+      <!-- Hamburger menu for mobile -->
+      <button class="hamburger" id="hamburgerMenu" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="header__nav" id="mainNav">
+        <a href="#" data-section="dashboard" class="nav-link active">Dashboard</a>
+        <a href="#" data-section="classes" class="nav-link">Live Classes</a>
+        <a href="#" data-section="store" class="nav-link">Store</a>
+        <a href="#" data-section="courses" class="nav-link">Courses</a>
+        <a href="#" data-section="instructor" class="nav-link">Become Instructor</a>
+        <a href="#" data-section="admin" class="nav-link">Admin</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="search-toggle" id="searchToggle" aria-label="Toggle search">🔍</button>
+        <div class="search-bar" id="searchBar" style="display:none;">
+          <input
+            type="text"
+            placeholder="Search classes, products..."
+            class="form-control"
+          />
+        </div>
+        <button class="notification-btn" id="notificationBtn" aria-label="Notifications">
+          🔔<span class="notification-badge">3</span>
+        </button>
+        <button class="cart-btn" id="cartBtn" aria-label="Cart">
+          🛒<span class="cart-count">0</span>
+        </button>
+        <div class="user-profile" id="userProfile">
+          <img
+            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40&h=40&fit=crop&crop=face"
+            alt="Profile"
+            class="profile-avatar"
+          />
+          <span class="profile-name">Select Role</span>
+          <button class="btn btn--sm" id="roleSelector">Change Role</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main>
+    <!-- DASHBOARD SECTION -->
+    <section id="dashboard" class="section active">
+      <h2>Welcome to YogaHub India Dashboard</h2>
+      <p>
+        Explore video classes, live sessions, and manage your profile.
+      </p>
+      <div class="cards">
+        <div class="card" data-section="videoClasses">
+          <h3>Video Classes</h3>
+        </div>
+        <div class="card" data-section="liveSessions">
+          <h3>Live Sessions</h3>
+        </div>
+        <div class="card" data-section="userProfile">
+          <h3>User Profile</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO CLASSES -->
+    <section id="videoClasses" class="section">
+      <h2>Video Classes</h2>
+      <button class="btn btn--primary" id="backToDashboard1">Back</button>
+      <div id="videoClassesList" class="cards"></div>
+    </section>
+
+    <!-- LIVE SESSIONS -->
+    <section id="liveSessions" class="section">
+      <h2>Live Sessions</h2>
+      <button class="btn btn--primary" id="backToDashboard2">Back</button>
+      <div id="liveSessionsList" class="cards"></div>
+    </section>
+
+    <!-- USER PROFILE -->
+    <section id="userProfile" class="section">
+      <h2>User Profile</h2>
+      <button class="btn btn--primary" id="backToDashboard3">Back</button>
+      <div id="userProfileContent"></div>
+    </section>
+
+    <!-- ADMIN PAGE -->
+    <section id="admin" class="section">
+      <h2>Admin Panel</h2>
+
+      <!-- Video Upload -->
+      <div class="admin-section">
+        <h3>Upload Class Videos</h3>
+        <form id="videoUploadForm">
+          <label>Class Title</label><br/>
+          <input type="text" id="classTitle" required /><br />
+          <label>Instructor</label><br/>
+          <input type="text" id="classInstructor" required /><br />
+          <label>Day of Week</label><br/>
+          <select id="classDay" required>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+          </select><br />
+          <label>Video URL</label><br/>
+          <input type="url" id="classVideoURL" required /><br />
+          <button type="submit" class="btn btn--primary">Upload Video</button>
+        </form>
+        <div id="uploadedVideos"></div>
+      </div>
+
+      <!-- Schedule Management -->
+      <div class="admin-section">
+        <h3>Manage Class Schedule (Mon-Fri)</h3>
+        <div id="scheduleList"></div>
+      </div>
+
+      <!-- Events Management -->
+      <div class="admin-section">
+        <h3>Manage Events</h3>
+        <form id="eventForm">
+          <label>Event Title</label><br/>
+          <input type="text" id="eventTitle" required /><br />
+          <label>Event Date</label><br/>
+          <input type="date" id="eventDate" required /><br />
+          <label>Event Description</label><br/>
+          <textarea id="eventDescription"></textarea><br />
+          <button type="submit" class="btn btn--primary">Create Event</button>
+        </form>
+        <div id="eventsList"></div>
+      </div>
+
+      <!-- User Management & Analytics -->
+      <div class="admin-section">
+        <h3>User Management & Analytics</h3>
+        <div id="userAnalytics"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
