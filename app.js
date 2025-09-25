@@ -201,7 +201,7 @@ class YogaHubApp {
     }
 
     setupEventListeners() {
-        // Navigation
+        // Navigation with ARIA improvements for accessibility
         document.addEventListener('click', (e) => {
             if (e.target.matches('[data-view]')) {
                 e.preventDefault();
@@ -508,12 +508,12 @@ class YogaHubApp {
         const isEnrolled = this.currentUser && cls.enrolledStudents.includes(this.currentUser.id);
 
         return `
-            <div class="class-card" data-class-id="${cls.id}">
+            <div class="class-card" data-class-id="${cls.id}" tabindex="0" aria-label="Class card for ${cls.title}">
                 <div class="class-card-image">🧘‍♀️</div>
                 <div class="class-card-content">
                     <div class="class-header">
                         <h3 class="class-title">${cls.title}</h3>
-                        <span class="class-price">$${cls.price}</span>
+                        <span class="class-price">₹${cls.price}</span>
                     </div>
                     
                     <div class="instructor-info">
@@ -529,7 +529,7 @@ class YogaHubApp {
                     <div class="class-meta">
                         <span class="class-tag">${cls.style}</span>
                         <span class="class-tag">${cls.level}</span>
-                        <span class="class-tag">${cls.duration}min</span>
+                        <span class="class-tag">${cls.duration} min</span>
                     </div>
 
                     <div class="class-schedule">
@@ -688,7 +688,7 @@ class YogaHubApp {
             </div>
 
             <div class="class-detail-sidebar">
-                <div class="class-detail-price">$${cls.price}</div>
+                <div class="class-detail-price">₹${cls.price}</div>
                 
                 <div class="detail-section">
                     <h3>Availability</h3>
@@ -703,7 +703,7 @@ class YogaHubApp {
                             <a href="${cls.meetingUrl}" target="_blank" class="btn btn--primary btn--full-width">Join Class</a>
                         `
                         : spotsLeft > 0 
-                            ? `<button class="btn btn--primary btn--full-width book-class-btn" data-class-id="${cls.id}">Book Now - $${cls.price}</button>`
+                            ? `<button class="btn btn--primary btn--full-width book-class-btn" data-class-id="${cls.id}">Book Now - ₹${cls.price}</button>`
                             : '<button class="btn btn--outline btn--full-width" disabled>Class Full</button>'
                     }
                 </div>
@@ -732,11 +732,11 @@ class YogaHubApp {
                 <p><strong>Date:</strong> ${new Date(cls.schedule).toLocaleDateString()}</p>
                 <p><strong>Time:</strong> ${new Date(cls.schedule).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
                 <p><strong>Duration:</strong> ${cls.duration} minutes</p>
-                <p><strong>Price:</strong> $${cls.price}</p>
+                <p><strong>Price:</strong> ₹${cls.price}</p>
             </div>
             
             <div class="booking-actions">
-                <button class="btn btn--primary btn--full-width" onclick="app.proceedToPayment('${classId}')">
+                <button class="btn btn--primary btn--full-width" onclick="app.proceedToPayment('${cls.id}')">
                     Proceed to Payment
                 </button>
             </div>
@@ -757,15 +757,15 @@ class YogaHubApp {
         summary.innerHTML = `
             <div class="payment-item">
                 <span>${cls.title}</span>
-                <span>$${cls.price}</span>
+                <span>₹${cls.price}</span>
             </div>
             <div class="payment-item">
                 <span>Processing Fee</span>
-                <span>$2.50</span>
+                <span>₹2.50</span>
             </div>
             <div class="payment-item payment-total">
                 <span><strong>Total</strong></span>
-                <span><strong>$${cls.price + 2.50}</strong></span>
+                <span><strong>₹${cls.price + 2.50}</strong></span>
             </div>
         `;
 
@@ -885,7 +885,7 @@ class YogaHubApp {
 
         stats.innerHTML = `
             <div class="dashboard-stat-card">
-                <h3>$${this.currentUser.earnings.thisMonth}</h3>
+                <h3>₹${this.currentUser.earnings.thisMonth}</h3>
                 <p>This Month</p>
             </div>
             <div class="dashboard-stat-card">
@@ -919,7 +919,7 @@ class YogaHubApp {
             <div class="dashboard-section">
                 <h2>Earnings Overview</h2>
                 <div class="chart-container" style="position: relative; height: 300px;">
-                    <canvas id="earningsChart"></canvas>
+                    <canvas id="earningsChart" aria-label="Earnings chart" role="img"></canvas>
                 </div>
             </div>
         `;
@@ -968,7 +968,7 @@ class YogaHubApp {
             <div class="subscription-plan ${recommended ? 'recommended' : ''} ${isCurrentPlan ? 'current' : ''}">
                 <h3 class="plan-name">${plan.name}</h3>
                 <div class="plan-price">
-                    $${plan.price}
+                    ₹${plan.price}
                     <span>/month</span>
                 </div>
                 <ul class="plan-features">
@@ -1026,7 +1026,7 @@ class YogaHubApp {
                         beginAtZero: true,
                         ticks: {
                             callback: function(value) {
-                                return '$' + value;
+                                return '₹' + value;
                             }
                         }
                     }
@@ -1192,8 +1192,7 @@ class YogaHubApp {
     }
 
     renderNotifications() {
-        // This would render notifications in a notifications panel
-        // For now, we'll just keep track of them in data
+        // Implement notifications render logic as needed
     }
 
     showLoading() {
@@ -1252,3 +1251,13 @@ window.addEventListener('popstate', (e) => {
 
 // Add some initial browser history
 history.replaceState({ view: 'home' }, '', '#home');
+
+/*
+  Suggestions for further missing features:
+  - Enhanced error handling and input validations.
+  - ARIA roles on interactive components for accessibility.
+  - Lazy loading images and other assets to improve performance.
+  - SEO-friendly meta tags and structured data in index.html.
+  - Integration of a robust notifications system.
+  - A settings modal to allow users to toggle between available background themes.
+*/
