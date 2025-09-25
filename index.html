@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YogaHub - Premium Yoga Classes Online</title>
+    <meta name="description" content="Join YogaHub for premium online yoga classes with certified instructors. Experience live sessions, flexible subscriptions, and a community-driven approach.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
                     <h2>🧘‍♀️ YogaHub</h2>
                 </div>
                 
-                <nav class="nav" id="nav">
+                <nav class="nav" id="nav" role="navigation" aria-label="Main Navigation">
                     <a href="#home" class="nav-link active" data-view="home">Home</a>
                     <a href="#classes" class="nav-link" data-view="classes">Classes</a>
                     <a href="#dashboard" class="nav-link" data-view="dashboard">Dashboard</a>
@@ -26,7 +27,8 @@
                 
                 <div class="header-actions">
                     <button class="btn btn--outline" id="signInBtn">Sign In</button>
-                    <button class="btn btn--primary" id="getStartedBtn">Get Started</button>
+                    <!-- Updated primary CTA text -->
+                    <button class="btn btn--primary" id="getStartedBtn">Join Now</button>
                     <div class="user-menu hidden" id="userMenu">
                         <div class="user-avatar" id="userAvatar"></div>
                         <div class="user-dropdown hidden" id="userDropdown">
@@ -35,7 +37,7 @@
                             <a href="#" id="logoutBtn">Logout</a>
                         </div>
                     </div>
-                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -46,7 +48,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="main">
+    <main class="main" role="main">
         <!-- Home View -->
         <section class="view active" id="homeView">
             <!-- Hero Section -->
@@ -57,7 +59,8 @@
                         <p>Join thousands of students learning from certified instructors in live, interactive sessions</p>
                         <div class="hero-actions">
                             <button class="btn btn--primary btn--lg" data-view="classes">Browse Classes</button>
-                            <button class="btn btn--secondary btn--lg" id="heroSignUpBtn">Start Free Trial</button>
+                            <!-- Updated CTA text -->
+                            <button class="btn btn--secondary btn--lg" id="heroSignUpBtn">Start Your Journey</button>
                         </div>
                     </div>
                     <div class="hero-stats">
@@ -128,9 +131,9 @@
                                 <label class="form-label">Price Range</label>
                                 <select class="form-control" id="priceFilter">
                                     <option value="">Any Price</option>
-                                    <option value="0-20">$0 - $20</option>
-                                    <option value="20-30">$20 - $30</option>
-                                    <option value="30+">$30+</option>
+                                    <option value="0-20">₹0 - ₹20</option>
+                                    <option value="20-30">₹20 - ₹30</option>
+                                    <option value="30+">₹30+</option>
                                 </select>
                             </div>
 
@@ -196,7 +199,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -224,12 +227,12 @@
 
     <!-- Modals -->
     <!-- Auth Modal -->
-    <div class="modal hidden" id="authModal">
+    <div class="modal hidden" id="authModal" role="dialog" aria-modal="true">
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <div class="modal-header">
                 <h2 id="authModalTitle">Sign In</h2>
-                <button class="modal-close" id="authModalClose">×</button>
+                <button class="modal-close" id="authModalClose" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="authForm">
@@ -269,12 +272,12 @@
     </div>
 
     <!-- Booking Modal -->
-    <div class="modal hidden" id="bookingModal">
+    <div class="modal hidden" id="bookingModal" role="dialog" aria-modal="true">
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Book Class</h2>
-                <button class="modal-close" id="bookingModalClose">×</button>
+                <button class="modal-close" id="bookingModalClose" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body" id="bookingModalBody">
                 <!-- Booking content will be populated by JavaScript -->
@@ -283,12 +286,12 @@
     </div>
 
     <!-- Payment Modal -->
-    <div class="modal hidden" id="paymentModal">
+    <div class="modal hidden" id="paymentModal" role="dialog" aria-modal="true">
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Payment</h2>
-                <button class="modal-close" id="paymentModalClose">×</button>
+                <button class="modal-close" id="paymentModalClose" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="payment-summary" id="paymentSummary">
@@ -320,12 +323,12 @@
     </div>
 
     <!-- Create Class Modal -->
-    <div class="modal hidden" id="createClassModal">
+    <div class="modal hidden" id="createClassModal" role="dialog" aria-modal="true">
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Create New Class</h2>
-                <button class="modal-close" id="createClassModalClose">×</button>
+                <button class="modal-close" id="createClassModalClose" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="createClassForm">
@@ -375,7 +378,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label">Price ($)</label>
+                            <label class="form-label">Price (₹)</label>
                             <input type="number" class="form-control" id="classPrice" placeholder="25" min="0" required>
                         </div>
                         <div class="form-group">
@@ -402,7 +405,7 @@
 
     <!-- Loading Overlay -->
     <div class="loading-overlay hidden" id="loadingOverlay">
-        <div class="loading-spinner"></div>
+        <div class="loading-spinner" aria-label="Loading"></div>
     </div>
 
     <!-- Success Message -->
@@ -421,6 +424,6 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app (1).js"></script>
 </body>
 </html>
