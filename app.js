@@ -1251,13 +1251,3 @@ window.addEventListener('popstate', (e) => {
 
 // Add some initial browser history
 history.replaceState({ view: 'home' }, '', '#home');
-
-/*
-  Suggestions for further missing features:
-  - Enhanced error handling and input validations.
-  - ARIA roles on interactive components for accessibility.
-  - Lazy loading images and other assets to improve performance.
-  - SEO-friendly meta tags and structured data in index.html.
-  - Integration of a robust notifications system.
-  - A settings modal to allow users to toggle between available background themes.
-*/
